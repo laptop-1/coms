@@ -1,8 +1,8 @@
 import customtkinter as ctk
 
 class App(ctk.CTk):
-    def __init__(self):
+    def __init__(self, title, dimensions):
         super().__init__()
-        self.title()
-        self.geometry()
+        self.title(title)
+        self.geometry(f"{dimensions[0]}x{dimensions[1]}")
 
