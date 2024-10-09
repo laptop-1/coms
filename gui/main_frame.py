@@ -3,8 +3,9 @@ from random import uniform
 import customtkinter as ctk
 
 class MainFrame(ctk.CTkFrame):
-    def __init__(self,master):
+    def __init__(self,master,controller):
         super().__init__(master, fg_color="white")
+        self.controller = controller
 
         #frame positioning
         self.main_frame_griding()
@@ -27,7 +28,7 @@ class MainFrame(ctk.CTkFrame):
         self.main_frame_lable = ctk.CTkLabel(self,text="Customer Order Management", font=("Arial", 30,"bold"))
         self.customer_button = ctk.CTkButton(self,text="Customer", font=("Arial", 25,"bold"))
         self.order_button = ctk.CTkButton(self, text="Order", font=("Arial", 25,"bold"))
-        self.production_button = ctk.CTkButton(self, text="Production", font=("Arial", 25,"bold"))
+        self.production_button = ctk.CTkButton(self, text="Production", font=("Arial", 25,"bold"), command=lambda :self.customer_screen_calling())
         self.delivery_button = ctk.CTkButton(self, text="Delivery", font=("Arial", 25,"bold"))
 
     def gui_elements_positoning(self):
@@ -36,3 +37,7 @@ class MainFrame(ctk.CTkFrame):
         self.order_button.grid(column=1,row=2,sticky="nsew", pady=5)
         self.production_button.grid(column=1,row=3,sticky="nsew", pady=5)
         self.delivery_button.grid(column=1,row=4,sticky="nsew", pady=5)
+
+    def customer_screen_calling(self):
+        self.controller.display_screen(self.controller.screen_list[1])
+

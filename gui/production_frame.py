@@ -1,8 +1,9 @@
 import customtkinter as ctk
 
 class ProductionFrame(ctk.CTkFrame):
-    def __init__(self,master):
-        super().__init__(master)
+    def __init__(self,master, controller):
+        super().__init__(master, fg_color="blue")
+        self.controller = controller
         #frame positioning
         self.main_frame_griding()
         #frame structuring
@@ -17,3 +18,4 @@ class ProductionFrame(ctk.CTkFrame):
         self.columnconfigure(0, weight=1,uniform='a')
         self.columnconfigure(1, weight=2, uniform='a')
         self.columnconfigure(2, weight=1, uniform='a')
+
