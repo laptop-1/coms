@@ -1,5 +1,7 @@
 import customtkinter as ctk
 from . import main_frame
+from . import customer_frame
+from . import order_frame
 from . import production_frame
 
 class App(ctk.CTk):
@@ -18,7 +20,7 @@ class App(ctk.CTk):
 
         self.initialize_all_screen()
 
-        self.display_default_screen(self.screen_list[0])
+        self.display_default_screen(self.screen_dict["main"])
 
 
 
@@ -36,11 +38,15 @@ class App(ctk.CTk):
         self.shell_container.grid(column=0, row=0, sticky="nsew")
 
     def initialize_all_screen(self):
-        self.screen_list = []
+        self.screen_dict = {}
         main_frame_screen = main_frame.MainFrame(self.shell_container, self)
+        customer_frame_screen = customer_frame.CustomerFrame(self.shell_container, self)
+        order_frame_screen = order_frame.OrderFrame(self.shell_container, self)
         production_frame_screen = production_frame.ProductionFrame(self.shell_container, self)
-        self.screen_list.append(main_frame_screen)
-        self.screen_list.append(production_frame_screen)
+        self.screen_dict["main"] = main_frame_screen
+        self.screen_dict["customer"] = customer_frame_screen
+        self.screen_dict["order"] = order_frame_screen
+        self.screen_dict["production"] = production_frame_screen
 
     def display_screen(self,screen_object):
         screen_object.tkraise()
