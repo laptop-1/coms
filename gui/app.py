@@ -17,15 +17,9 @@ class App(ctk.CTk):
         #initialize shell container
         self.shell_container_initializer()
 
-
         self.initialize_all_screen()
 
         self.display_default_screen(self.screen_dict["main"])
-
-
-
-
-
 
 
     def full_screen(self):

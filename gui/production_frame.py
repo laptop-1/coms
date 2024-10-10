@@ -2,7 +2,7 @@ import customtkinter as ctk
 
 class ProductionFrame(ctk.CTkFrame):
     def __init__(self,master, controller):
-        super().__init__(master, fg_color="blue")
+        super().__init__(master)
         self.controller = controller
         #frame positioning
         self.main_frame_griding()
