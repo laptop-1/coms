@@ -27,7 +27,7 @@ class ProductionFrame(ctk.CTkFrame):
     def gui_elements_creation(self):
         self.back_button = ctk.CTkButton(self,text="Back", font=("Arial", 20, "bold"))
         self.title_label = ctk.CTkLabel(self, text="Production", font=("Arial", 20, "bold"))
-        self.today_production_date_button = ctk.CTkButton(self, text="Same Production Report", font=("Arial", 20, "bold"))
+        self.today_production_date_button = ctk.CTkButton(self, text="Same Production Report", font=("Arial", 20, "bold"), width=100,height=50)
         self.specific_day_frame_creation()
 
     #creation for the specific day wigets inside the frame
@@ -55,9 +55,9 @@ class ProductionFrame(ctk.CTkFrame):
 
     #position the elements on the gui
     def gui_elements_positioning(self):
-        self.back_button.grid(column=0, row=0, sticky="nsew", ipadx=20, ipady=20)
+        self.back_button.grid(column=0, row=0)
         self.title_label.grid(column=1, row=0, sticky="nsew")
-        self.today_production_date_button.grid(column=1, row=1, sticky="nsew")
+        self.today_production_date_button.grid(column=1, row=1)
         self.specific_day_frame.grid(column=1, row=2, sticky="nsew")
 
 
